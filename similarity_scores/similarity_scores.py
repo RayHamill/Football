@@ -18,9 +18,9 @@ similarity_stats = ['shots', 'xG', 'goals', 'key_passes', 'set_piece_key_passes'
                     'average_cross_depth', 'headed_shot_percentage']
 
 
-# Standardizes data and applies PCA to deal with collinearity.
-# Returns new df with principle components accounting for 95% of variance, as well as index containing player info.
 def apply_pca(df, year, comps):
+    # Standardizes data and applies PCA to deal with collinearity.
+    # Returns new df with principle components accounting for 95% of variance, as well as index containing player info.
 
     df = df[(df['mins'] > 800) & (df['year'] >= year) & (df['tournament_id'].isin(comps))].set_index(
         ['player', 'team', 'year', 'age', 'tournament_id']).drop('mins', axis=1).fillna(0)
@@ -39,9 +39,8 @@ def apply_pca(df, year, comps):
     return pca_df, index
 
 
-# Calls apply_pca, calculates distance of all players from given player, then scales between 0 (furthest point) and 1
-# Filters based on input parameters, saves csv file and
 def calculate_similarity(player, df, comps=all_comps, year=19, max_age=45):
+    # Calculates the similarity between a given player and all other players, and returns top 20 as pandas series.
 
     pca_df, index = apply_pca(df, year, comps)
     # p1 contains metrics from target player
@@ -75,4 +74,3 @@ if __name__ == '__main__':
     similarity = calculate_similarity(player_string, df, comps)
     print(similarity.head(20))
 
-# TODO: Add docstrings & uniqueness code.

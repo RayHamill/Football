@@ -9,6 +9,7 @@ path = 'C:/Users/Ray/Desktop/Football Data/Opta Data/Football/'
 
 
 def tune_parameters(training_set, training_labels):
+    # Performs grid search cv to find best combination of hyperparameters for random forest.
 
     param_grid = {
         'bootstrap': [True],
@@ -26,6 +27,7 @@ def tune_parameters(training_set, training_labels):
 
 
 def train_xg_model(shot_df):
+    # Trains (and saves) a random forest expected goals model, given a shots dataframe with the below features.
 
     features = ['distance', 'angle', 'big_chance', 'header', 'from_corner', 'from_fk', 'free_kick', 'fast_break',
                 'from_cross', 'from_through_ball']
@@ -50,6 +52,7 @@ def train_xg_model(shot_df):
     for i in range(0, len(features)):
         print(features[i]+': '+str(round(feature_importance[i], 3)))
 
+    # saves model as pickle file.
     with open("expected_goals.pkl", 'wb') as file:
         pickle.dump(rf_classifier, file)
 
@@ -59,7 +62,3 @@ if __name__ == '__main__':
     df = pd.read_csv(path+'data/shots_df.csv')
     train_xg_model(df)
 
-# xG model analysis
-# what leagues to train on?
-# how does it perform in different leagues? etc
-# for now while sharing code i can be discreet by just showing shot_df
