@@ -1,6 +1,5 @@
 library(tidyverse)
 library(ggrepel)
-library("ggimage")
 source("C:/Users/Ray/Desktop/Football Data/Opta Data/Football/data_visualization/theme_ray.R")
 theme_set(theme_ray())
 
@@ -8,6 +7,7 @@ theme_set(theme_ray())
 # This example compares player goalscoring rates with their expected rate.
 
 df <- read_csv("C:/Users/Ray/Desktop/Football Data/Opta Data/tmp.csv")
+# Four columns: player name, xG, goals, difference (between xG and goals)
 
 ggplot(data=subset(df), aes(xG, goals)) +
   geom_abline(intercept = 0, slope = 1, color='grey50', linetype='dashed') +
@@ -18,6 +18,6 @@ ggplot(data=subset(df), aes(xG, goals)) +
   scale_y_continuous(limits = c(0, 1.1), breaks=seq(0, 1, 0.25))+
   scale_fill_gradient2(low="red", high="green", mid='grey50', midpoint=1)+
   ggtitle("La Liga's Biggest Over/Under-Performers in Front of Goal")+
-  labs(x="xG per 90", y="Goals per 90", subtitle="Minimum 1000 minutes played | 2018/19\nColour denotes total goals minus total xG")+
+  labs(x="xG per 90", y="Goals per 90", subtitle="Minimum 1000 minutes played | 2018/19\nColour denotes total goals minus total xG")
 
 ggsave('tmp.png', width=5.5, height=5.5, dpi=1000)
