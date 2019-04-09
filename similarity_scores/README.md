@@ -13,7 +13,7 @@ Obviously this would just be a basic first step, after which there would need to
 
 I used R's Shiny package to develop an interactive application to play around with these similarity scores: https://rayhamill.shinyapps.io/similarity_scores/
 
-[screenshot] https://github.com/RayHamill/Football/blob/master/similarity_scores/images/screenshot.png
+![alt text](https://github.com/RayHamill/Football/blob/master/similarity_scores/images/screenshot.png)
 
 ## Method
 Below outlines the steps taken to develop these player similarity scores.
