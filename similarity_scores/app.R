@@ -84,41 +84,4 @@ server <- function(input, output) {
   width = 550)
 }
 shinyAppDir(".")
-shinyApp(ui = ui, server = server)
-
-# reorder players alphabetically.
-
-# find duplicate players in python with groupby.
-# find where they're being duplicated? By Name or ID?
-
-
-## One or two sentences outlining what similarity scores are.
-## Not too detailed on method.
-## Can expand on method in searching for unique players blog post.
-
-## Player Selection Section
-
-## League & Team Selection Options - Default to All.
-## Player Search and Dropdown Option - What Default?
-
-
-## Filtering Section
-
-## Age
-## League
-## Mins?
-
-## Remove goalkeepers
-## Change title to just player name, no subtitle.
-## Explainer text, with links to GitHub and Twitter.
-## Widget to display more players. Default at like 15.
-## Add team crests.
-## Explore with different configs. Diff PCA amount. Diff features. Etc.
-## Remove duplicate players, fix ages. Beware of players who have switched clubs.
-## check: maxi gomez, juan mata, 
-## Think about how it adapts to devices. Most commonly used on phone.
-## include ggsave button.
-
-## NO NEED TO RUSH. BETTER TO GET IT RIGHT.
-
-
+#shinyApp(ui = ui, server = server)
